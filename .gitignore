@@ -1,37 +1,20 @@
-# === SECRETS & ENVIRONMENT ===
-.env
-.env.local
-*.env
-
-# === IDE (IntelliJ / PyCharm) ===
-.idea/
-*.iml
-*.iws
-*.ipr
-out/
-
-# === PYTHON CACHE ===
+# Python cache
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-instance/
-*.sqlite3
-.mypy_cache/
-.pytest_cache/
+*.pyc
 
-# === NODE / FRONTEND ===
+# Node
 node_modules/
-dist/
-build/
 package-lock.json
-npm-debug.log*
-yarn-debug.log*
+dist/
 
-# === DATABASE & LOGS ===
+# IDE
+.idea/
+.vscode/
+
+# Environment
+.env
+
+# Database
+instance/
 *.db
-*.log
-
-# === OS ===
-Thumbs.db
-.DS_Store
+*.sqlite3
