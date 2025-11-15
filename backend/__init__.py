@@ -9,11 +9,11 @@ login_manager = LoginManager()
 def create_app():
     print("DATABASE_URL =", os.getenv("DATABASE_URL"))
 
+
     app = Flask(__name__)
 #specifying the location of the sql database on local machine
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "dev-only-change-me")
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "sqlite:///dev.db")  # Fallback to SQLite    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}}, supports_credentials=True)
     db.init_app(app)
     migrate.init_app(app,db)
@@ -57,3 +57,6 @@ def load_user(user_id: str):
     from backend.blueprint.models import User
     return db.session.get(User, int(user_id))
 
+app = create_app()
+from flask_migrate import Migrate
+app.cli.add_command(Migrate, 'db')

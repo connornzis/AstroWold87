@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/cyberSpace.iml" filepath="$PROJECT_DIR$/cyberSpace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cyberSpacer.iml" filepath="$PROJECT_DIR$/.idea/cyberSpacer.iml" />
     </modules>
   </component>
 </project>
